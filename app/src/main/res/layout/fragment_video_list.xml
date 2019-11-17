@@ -3,9 +3,45 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.videotimelines.fragments.VideoListFragment">
-    <ScrollView
-        android:id="@+id/VideosScroll"
-        android:layout_width="match_parent" android:layout_height="match_parent">
 
-    </ScrollView>
+    <data>
+        <variable
+            name="videoFragment"
+            type="com.example.videotimelines.fragments.VideoListFragment" />
+    </data>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/Videos"
+        android:scrollbars="vertical"
+        android:layout_width="match_parent" android:layout_height="match_parent" />
+
+<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--            android:id="@+id/frameLayout"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content">-->
+
+<!--            <com.google.android.youtube.player.YouTubeThumbnailView-->
+<!--                android:id="@+id/thumbnail"-->
+<!--                android:src="@drawable/no_thumbnail"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="match_parent"-->
+<!--                app:layout_constraintHorizontal_weight="1"-->
+<!--                app:layout_constraintTop_toTopOf="parent"-->
+<!--                app:layout_constraintLeft_toLeftOf="parent"-->
+<!--                app:layout_constraintRight_toLeftOf="@+id/text"/>-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/text"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:text="@string/hello_blank_fragment"-->
+<!--                android:textAppearance="?android:attr/textAppearanceSmall"-->
+<!--                android:textColor="#000"-->
+<!--                app:layout_constraintHorizontal_weight="1"-->
+<!--                app:layout_constraintLeft_toRightOf="@+id/thumbnail"-->
+<!--                app:layout_constraintTop_toTopOf="parent" />-->
+
+
+<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+
 </layout>

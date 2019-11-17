@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/navigation">
-
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/videoListFragment">
+    <fragment
+        android:id="@+id/videoListFragment"
+        android:name="com.example.videotimelines.fragments.VideoListFragment"
+        android:label="fragment_video_list"
+        tools:layout="@layout/fragment_video_list" >
+        <action
+            android:id="@+id/action_videoListFragment_to_videoFragment"
+            app:destination="@id/videoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/videoFragment"
+        android:name="com.example.videotimelines.fragments.VideoFragment"
+        android:label="fragment_video"
+        tools:layout="@layout/fragment_video" />
 </navigation>

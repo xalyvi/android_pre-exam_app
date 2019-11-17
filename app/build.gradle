@@ -37,6 +37,7 @@ dependencies {
     implementation "androidx.core:core:$version_core"
 
     implementation "androidx.constraintlayout:constraintlayout:$version_constraint_layout"
+    implementation "androidx.recyclerview:recyclerview:$version_recyclerview"
 
     implementation "com.google.android.material:material:$version_material"
 
