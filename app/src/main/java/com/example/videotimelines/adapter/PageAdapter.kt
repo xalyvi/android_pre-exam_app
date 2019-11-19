@@ -1,15 +1,11 @@
 package com.example.videotimelines.adapter
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.BaseAdapter
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.videotimelines.keys.DeveloperKey
 import com.example.videotimelines.R
-import com.example.videotimelines.entity.Videos
 import com.google.android.youtube.player.YouTubeInitializationResult
 import com.google.android.youtube.player.YouTubeThumbnailLoader
 import com.google.android.youtube.player.YouTubeThumbnailView
@@ -17,7 +13,7 @@ import kotlinx.android.synthetic.main.video_list_item.view.*
 import java.util.ArrayList
 import java.util.HashMap
 
-class PageAdapter(private val entries: List<VideoEntry>) :
+class PageAdapter(private val entries: List<VideoEntry>, private val onVideosClickListener: OnVideosClickListener) :
     RecyclerView.Adapter<PageAdapter.ViewHolder>() {
 
     private val entryViews: List<View>
@@ -28,7 +24,7 @@ class PageAdapter(private val entries: List<VideoEntry>) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = entries[position]
-        holder.bind(item, position, thumbnailListener)
+        holder.bind(item, position, thumbnailListener, onVideosClickListener)
     }
 
     override fun getItemCount() = entries.size
@@ -41,13 +37,17 @@ class PageAdapter(private val entries: List<VideoEntry>) :
 
     class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
 
-        fun bind(item: VideoEntry, position: Int, thumbnailListener: ThumbnailListener) {
+        fun bind(item: VideoEntry, position: Int, thumbnailListener: ThumbnailListener, onVideosClickListener: OnVideosClickListener) {
             view.apply {
                 thumbnail.tag = item.getVideoId()
                 thumbnail.initialize(DeveloperKey.DEVELOPER_KEY, thumbnailListener)
                 label.setText(item.getText())
                 label.visibility = View.VISIBLE
             }
+            setOnItemClickListener(position, onVideosClickListener)
+        }
+        private fun setOnItemClickListener(position: Int, onVideosClickListener: OnVideosClickListener) {
+            view.setOnClickListener { onVideosClickListener.onItemClick(position) }
         }
     }
 

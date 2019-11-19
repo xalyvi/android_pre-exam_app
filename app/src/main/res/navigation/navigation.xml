@@ -17,5 +17,9 @@
         android:id="@+id/videoFragment"
         android:name="com.example.videotimelines.fragments.VideoFragment"
         android:label="fragment_video"
-        tools:layout="@layout/fragment_video" />
+        tools:layout="@layout/fragment_video" >
+        <argument
+            android:name="videoId"
+            app:argType="string" />
+    </fragment>
 </navigation>

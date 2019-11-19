@@ -3,22 +3,21 @@ package com.example.videotimelines.fragments
 
 import android.os.Bundle
 import android.view.*
-import android.widget.ListView
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.ListFragment
-import androidx.navigation.fragment.findNavController
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.videotimelines.R
+import com.example.videotimelines.adapter.OnVideosClickListener
 import com.example.videotimelines.adapter.PageAdapter
 import com.example.videotimelines.adapter.VideoEntry
 import com.example.videotimelines.databinding.FragmentVideoListBinding
 import com.google.android.youtube.player.YouTubeApiServiceUtil
 import com.google.android.youtube.player.YouTubeInitializationResult
 
-class VideoListFragment : Fragment() {
+class VideoListFragment : Fragment(), OnVideosClickListener {
 
     private val RECOVERY_DIALOG_REQUEST = 1
 
@@ -46,7 +45,7 @@ class VideoListFragment : Fragment() {
             inflater, R.layout.fragment_video_list, container, false
         )
 
-        viewAdapter = PageAdapter(VIDEO_LIST)
+        viewAdapter = PageAdapter(VIDEO_LIST, this)
 
         binding.videoFragment = this
 
@@ -62,6 +61,10 @@ class VideoListFragment : Fragment() {
         }
 
         return binding.root
+    }
+
+    override fun onItemClick(position: Int) {
+        recyclerView.findNavController().navigate(VideoListFragmentDirections.actionVideoListFragmentToVideoFragment(viewAdapter.getItem(position).getVideoId()))
     }
 
 //    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
