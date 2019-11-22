@@ -7,4 +7,9 @@
 
     <string name="error_player">There was an error initializing the YouTubePlayer (%1$s)</string>
     <string name="playerfragment_text">This is a YouTube fragment</string>
+    <string name="add_timeline">Add Timeline</string>
+
+    <string name="timeline_dialog_message">Save %s timecode</string>
+    <string name="timeline_dialog_desc">timecode description</string>
+    <string name="detele_timeline">Delete Timeline</string>
 </resources>

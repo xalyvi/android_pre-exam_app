@@ -3,6 +3,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.videotimelines.fragments.VideoFragment">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -19,13 +20,36 @@
 <!--            android:layout_width="match_parent"-->
 <!--            android:layout_height="wrap_content"/>-->
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:textAppearance="@android:style/TextAppearance.Small"-->
+<!--            android:gravity="center"-->
+<!--            android:text="@string/playerfragment_text"/>-->
+
+        <ScrollView
+            android:id="@+id/timelines_holder"
+            android:orientation="vertical"
             android:layout_weight="1"
-            android:textAppearance="@android:style/TextAppearance.Small"
-            android:gravity="center"
-            android:text="@string/playerfragment_text"/>
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+            <LinearLayout
+                android:id="@+id/timelines"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                />
+        </ScrollView>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:src="@android:drawable/ic_input_add"
+            android:contentDescription="@string/add_timeline"
+            android:layout_margin="16dp" />
 
     </LinearLayout>
 </layout>

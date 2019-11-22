@@ -2,11 +2,7 @@ package com.example.videotimelines
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import android.view.Menu
-import android.view.MenuItem
 import androidx.databinding.DataBindingUtil
-import androidx.navigation.findNavController
-import androidx.navigation.ui.NavigationUI
 import com.example.videotimelines.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
